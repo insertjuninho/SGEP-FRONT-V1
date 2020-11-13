@@ -1,12 +1,10 @@
 {
-  "name": "painel-admin",
+  "name": "sgep",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4031",
     "build": "ng build",
-    "prod-build": "cp src/app/prod.app.config.ts src/app/app.config.ts && ng build",
-    "dev-build": "cp src/app/dev.app.config.ts src/app/app.config.ts && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -26,7 +24,7 @@
     "@auth0/angular-jwt": "^2.1.0",
     "@ngx-pwa/local-storage": "^8.2.4",
     "@toverux/ngx-sweetalert2": "^4.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^4.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.4.0",
     "subsink": "^1.0.1",

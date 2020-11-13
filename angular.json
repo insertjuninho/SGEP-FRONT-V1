@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "painel-admin": {
+    "sgep": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/painel-admin",
+            "outputPath": "dist/sgep",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "painel-admin:build"
+            "browserTarget": "sgep:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "painel-admin:build:production"
+              "browserTarget": "sgep:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "painel-admin:build"
+            "browserTarget": "sgep:build"
           }
         },
         "test": {
@@ -117,16 +117,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "painel-admin:serve"
+            "devServerTarget": "sgep:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "painel-admin:serve:production"
+              "devServerTarget": "sgep:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "painel-admin"
+  "defaultProject": "sgep"
 }

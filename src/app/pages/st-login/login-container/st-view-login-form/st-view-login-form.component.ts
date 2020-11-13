@@ -20,7 +20,7 @@ export class StViewLoginFormComponent implements OnInit {
 
   setFormGroups() {
     this.signinFormGroup = this.formBuilder.group({
-      usuario: ['', Validators.compose([Validators.maxLength(120), Validators.required])],
+      email: ['', Validators.compose([Validators.maxLength(120), Validators.required])],
       senha: ['', Validators.required]
     },
     );

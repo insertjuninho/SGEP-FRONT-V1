@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'painel-admin'`, () => {
+  it(`should have as title 'sgep'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('painel-admin');
+    expect(app.title).toEqual('sgep');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('painel-admin app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('sgep app is running!');
   });
 });

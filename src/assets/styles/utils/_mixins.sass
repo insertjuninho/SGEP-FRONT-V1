@@ -23,21 +23,11 @@
   -moz-box-shadow: $shadow
   -ms-box-shadow: $shadow
   box-shadow: $shadow
+  
 @mixin back($escolha)
   background-image: $escolha
   background-position: center
   background-repeat: no-repeat
-  
-@mixin placeholder 
-  ::-webkit-input-placeholder 
-    @content
-  :-moz-placeholder         
-    @content
-  ::-moz-placeholder          
-    @content
-  :-ms-input-placeholder      
-    @content 
-   
   
 @mixin respond-to($breakpoint) 
   @if $breakpoint == "device" 
