@@ -1,0 +1,49 @@
+@import './../../../../../assets/styles/utils/_mixins.sass';
+@import './../../../../../assets/styles/utils/_variables.sass';
+
+.user-info{
+    height: 145px;
+    width: 84%;
+    margin-top: 35px;
+    padding: 15px 25px;
+    background: $color-white;
+    box-shadow: 0px 0px 11px 1px rgba(0,0,0,0.05);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include respond-to('medium'){
+        width: 93%;
+    }
+
+    &-title{
+        color: #3d3d3d;
+        font: {
+            size: 32px;
+            family: $font1;
+        }
+    }
+    &-text{
+        max-width: 87%;
+        color: #3d3d3d;
+        font: {
+            size: 16.5px;
+            family: $font1
+        }
+    }
+}
+
+.user-more-info{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 83%;
+    gap: 6rem;
+    @include respond-to('medium'){
+        max-width: 93%;
+        grid-template-columns: 1fr 1fr;
+    }
+    &-card{
+        height: 300px;
+        width: 100%;
+    }
+}
