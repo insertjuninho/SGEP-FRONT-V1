@@ -42,9 +42,9 @@ export class ViewSidemenuComponent implements OnInit {
       permision: true,
     },
     {
-      title: "Funcionarios",
+      title: "Funcionários",
       icon: "fas fa-users",
-      url: "lancar-saida",
+      url: "funcionarios",
       permision: true,
     },
     {
@@ -91,6 +91,9 @@ export class ViewSidemenuComponent implements OnInit {
           break;
         case "/lancar-saidas":
           this.selectedItem = "lancar-saidas";
+          break;
+        case "/funcionarios":
+          this.selectedItem = "funcionarios";
           break;
   
         default:

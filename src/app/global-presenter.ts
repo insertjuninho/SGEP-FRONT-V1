@@ -8,6 +8,7 @@ export class GlobalPresenter {
     constructor() { }
 
     setData(data) {
+        console.log(data)
         this._userData.next(data);
     }
 

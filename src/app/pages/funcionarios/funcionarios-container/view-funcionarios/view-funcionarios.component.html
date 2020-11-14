@@ -1,0 +1,96 @@
+<section class="employers-list">
+  <section class="employers-list-header">
+    <span class="employers-list-header-filter">
+      <input type="text" placeholder="Pesquisar...">
+      <i class="fas fa-search"></i>
+    </span>
+
+    <button class="employers-list-header-add-button">Adicionar Funcionário</button>
+  </section>
+
+  <section class="employers-list__table">
+    <ul class="employers-list__table-header">
+      <li class="employers-list__table-header-li">Nome</li>
+      <li class="employers-list__table-header-li">Email</li>
+      <li class="employers-list__table-header-li">Matrícula</li>
+      <li class="employers-list__table-header-li">Privilegio</li>
+      <li class="employers-list__table-header-li">Setor</li>
+      <li class="employers-list__table-header-li">Centro Custo</li>
+      <li class="employers-list__table-header-li">Dia de Folga</li>
+      <li class="employers-list__table-header-li">Status</li>
+    </ul>
+
+    <ng-container *ngFor="let parc of[1,2,3,4]; let i = index">
+      <ul class="employers-list__table-content"
+        [ngClass]="{'employers-list__table-content-mobile-details': accordionIndex == i && toggle}">
+        <li class="employers-list__table-content-li">
+          <p>Nome do Funcionario</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>email@vkblnlfb.com.br</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>55115665163</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>Supervisor</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>Master setor</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>AA-99</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>08/11/2020</p>
+        </li>
+        <li class="employers-list__table-content-li">
+          <p>Almoço</p>
+        </li>
+
+        <!-- MOBILE -->
+        <div class="employers-list__table-content-li-mobile" [ngClass]="{'hide': (!toggle && accordionIndex != i)}">
+
+            <li class="employers-list__table-content-li-mobile">
+              <p class="employers-list__table-content-li-mobile-p">
+                Matrícula: <span class="employers-list__table-content-li-mobile-span">
+                  {{i}}
+                </span>
+              </p>
+            </li>
+            <li class="employers-list__table-content-li-mobile">
+              <p class="employers-list__table-content-li-mobile-p">
+                Privilegio: <span class="employers-list__table-content-li-mobile-span">
+                  Supervisor{{i}}
+                </span>
+              </p>
+            </li>
+            <li class="employers-list__table-content-li-mobile">
+              <p class="employers-list__table-content-li-mobile-p">
+                Setor: <span class="employers-list__table-content-li-mobile-span">
+                  Master setor{{i}}
+                </span>
+              </p>
+            </li>
+            <li class="employers-list__table-content-li-mobile">
+              <p class="employers-list__table-content-li-mobile-p">
+                Centro Custo: <span class="employers-list__table-content-li-mobile-span">
+                  AA-99{{i}}
+                </span>
+              </p>
+            </li>
+            <li class="employers-list__table-content-li-mobile">
+              <p class="employers-list__table-content-li-mobile-p">
+                Dia de Folga: <span class="employers-list__table-content-li-mobile-span">
+                 02/11/2020
+                </span>
+              </p>
+            </li>
+            
+        </div>
+        <button class="employers-list__table-content-li-mobile-open-btn" (click)="toggleInfo(i)"><i
+            class="fas fa-plus"></i></button>
+      </ul>
+    </ng-container>
+  </section>
+</section>

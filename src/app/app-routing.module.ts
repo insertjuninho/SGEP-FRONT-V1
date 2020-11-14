@@ -25,6 +25,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lancar-saida/lancar-saida.module').then(m => m.LancarSaidaModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'funcionarios',
+    loadChildren: () => import('./pages/funcionarios/funcionarios.module').then(m => m.FuncionariosModule),
+    canActivate: [AuthGuard],
+  },
   { 
     path: '', 
     redirectTo: '/home', 

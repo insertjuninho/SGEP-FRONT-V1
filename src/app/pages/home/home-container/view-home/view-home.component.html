@@ -1,19 +1,78 @@
-<section class="user-info">
-    <!-- <h1>{{user?.nome}} {{user?.sobrenome}}</h1> -->
-    <h1  class="user-info-title">Olá Fulano</h1>
-    <p class="user-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nesciunt ipsa quibusdam natus. Debitis ullam sunt laborum quod nisi voluptatem a doloribus in, libero eveniet porro quidem saepe nesciunt labore!</p>
+<section class="wrapper">
+  <section class="user-info">
+  <h1 class="user-info-title">{{user?.nome}} {{user?.sobrenome}}</h1>
+  <!-- <h1  class="user-info-title">Olá Fulano</h1> -->
+  <p class="user-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nesciunt ipsa quibusdam
+    natus. Debitis ullam sunt laborum quod nisi voluptatem a doloribus in, libero eveniet porro quidem saepe nesciunt
+    labore!</p>
 </section>
 <section class=" user-more-info">
-   <div class="user-info user-more-info-card">
-       
-   </div>
-   <div class="user-info user-more-info-card">
-       
-   </div>
-   <div class="user-info user-more-info-card">
-       
-   </div>
-   <div class="user-info user-more-info-card">
-       
-   </div>
+  <div class="user-info user-more-info-card">
+    <h2 class="user-more-info-card-title">Seus Dados</h2>
+    <p class="user-more-info-card-text"><b>CPF:</b> {{user?.cpf}}</p>
+    <p class="user-more-info-card-text"><b>Email:</b> {{user?.email}}</p>
+    <p class="user-more-info-card-text"><b>Próxima Folga:</b> {{user?.diafolga}}</p>
+    <p class="user-more-info-card-text"><b>Privilégio:</b> {{user?.privilegio}}</p>
+  </div>
+
+  <div class="user-info user-more-info-card">
+    <h2 class="user-more-info-card-title">Relação Empresa</h2>
+    <p class="user-more-info-card-text"><b>Matrícula:</b> {{user?.matricula}}</p>
+    <p class="user-more-info-card-text"><b>Setor:</b> {{user?.setor?.nomeSetor}}</p>
+    <p class="user-more-info-card-text"><b>Centro de custo:</b> {{user?.setor?.centroCusto}}</p>
+  </div>
+
+  <div class="user-info user-more-info-card">
+    <h2 class="user-more-info-card-title">Suas Entradas</h2>
+
+    <div class="user-more-info__table">
+      <ul class="user-more-info__table-header">
+        <li class="user-more-info__header-li"></li>
+        <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
+        <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
+      </ul>
+      <ng-container *ngFor="let enters of [1,2,3,4]; let i = index">
+        <ul class="user-more-info__table-content">
+          <li class="user-more-info__table-content-li user-more-info__table-content-li--green"></li>
+
+          <li class="user-more-info__table-content-li">
+            <p>13/11/2020</p>
+          </li>
+          <li class="user-more-info__table-content-li">
+            <p>13:30:25</p>
+          </li>
+        </ul>
+      </ng-container>
+
+    </div>
+  </div>
+
+
+  <div class="user-info user-more-info-card">
+    <h2 class="user-more-info-card-title">Suas Saidas</h2>
+
+    <div class="user-more-info__table">
+      <ul class="user-more-info__table-header">
+        <li class="user-more-info__header-li"></li>
+        <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
+        <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
+      </ul>
+      <ng-container *ngFor="let enters of [1,2,3,4]; let i = index">
+        <ul class="user-more-info__table-content">
+          <li class="user-more-info__table-content-li user-more-info__table-content-li--red"></li>
+
+          <li class="user-more-info__table-content-li">
+            <p>13/11/2020</p>
+          </li>
+          <li class="user-more-info__table-content-li">
+            <p>13:30:25</p>
+          </li>
+        </ul>
+      </ng-container>
+
+    </div>
+  </div>
 </section>
+</section>
+
+
