@@ -1,4 +1,4 @@
-# Base para angular 
+# SGEP – Software de Gestão de Escala e Ponto 
 
 # Estruturação MVP e Lazy Load
 
