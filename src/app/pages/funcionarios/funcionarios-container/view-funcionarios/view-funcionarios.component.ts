@@ -16,6 +16,7 @@ export class ViewFuncionariosComponent implements OnInit {
   toggleInfo(i) {
     this.accordionIndex = i
     this.toggle = !this.toggle
+    this.accordionIndex = this.toggle ? i : null
   }
 
 }

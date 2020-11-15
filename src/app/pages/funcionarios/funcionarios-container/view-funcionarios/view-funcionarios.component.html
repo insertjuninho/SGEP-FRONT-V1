@@ -5,7 +5,7 @@
       <i class="fas fa-search"></i>
     </span>
 
-    <button class="employers-list-header-add-button">Adicionar Funcionário</button>
+    <!-- <button class="employers-list-header-add-button">Adicionar Funcionário</button> -->
   </section>
 
   <section class="employers-list__table">
@@ -49,7 +49,7 @@
         </li>
 
         <!-- MOBILE -->
-        <div class="employers-list__table-content-li-mobile" [ngClass]="{'hide': (!toggle && accordionIndex != i)}">
+        <div class="employers-list__table-content-li-mobile" [ngClass]="{'hide':  accordionIndex != i}">
 
             <li class="employers-list__table-content-li-mobile">
               <p class="employers-list__table-content-li-mobile-p">
@@ -58,28 +58,28 @@
                 </span>
               </p>
             </li>
-            <li class="employers-list__table-content-li-mobile">
+            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--privi">
               <p class="employers-list__table-content-li-mobile-p">
                 Privilegio: <span class="employers-list__table-content-li-mobile-span">
                   Supervisor{{i}}
                 </span>
               </p>
             </li>
-            <li class="employers-list__table-content-li-mobile">
+            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--setor">
               <p class="employers-list__table-content-li-mobile-p">
                 Setor: <span class="employers-list__table-content-li-mobile-span">
                   Master setor{{i}}
                 </span>
               </p>
             </li>
-            <li class="employers-list__table-content-li-mobile">
+            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--ct-custo">
               <p class="employers-list__table-content-li-mobile-p">
                 Centro Custo: <span class="employers-list__table-content-li-mobile-span">
                   AA-99{{i}}
                 </span>
               </p>
             </li>
-            <li class="employers-list__table-content-li-mobile">
+            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--d-folga">
               <p class="employers-list__table-content-li-mobile-p">
                 Dia de Folga: <span class="employers-list__table-content-li-mobile-span">
                  02/11/2020

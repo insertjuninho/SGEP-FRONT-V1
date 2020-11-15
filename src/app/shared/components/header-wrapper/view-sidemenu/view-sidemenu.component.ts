@@ -89,8 +89,8 @@ export class ViewSidemenuComponent implements OnInit {
         case "/lancar-entrada":
           this.selectedItem = "lancar-entrada";
           break;
-        case "/lancar-saidas":
-          this.selectedItem = "lancar-saidas";
+        case "/lancar-saida":
+          this.selectedItem = "lancar-saida";
           break;
         case "/funcionarios":
           this.selectedItem = "funcionarios";

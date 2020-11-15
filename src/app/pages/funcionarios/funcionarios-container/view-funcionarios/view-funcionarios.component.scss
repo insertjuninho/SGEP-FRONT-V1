@@ -127,6 +127,33 @@
            position: absolute;
            min-width: 100%;
            top: 40px;
+           &--privi {
+             margin-top: 16px
+           }
+           &--setor {
+             margin-top: 32px;
+             p{
+               span{
+                 margin-left: 42px !important
+               }
+             }
+           }
+           &--ct-custo {
+             margin-top: 52px;
+              p {
+                span {
+                  margin-left: 42px !important
+                }
+              }
+           }
+           &--d-folga {
+             margin-top: 72px;
+              p {
+                span {
+                  margin-left: 42px !important
+                }
+              }
+           }
            @include respond-to('medium') {
              display: none;
            }
@@ -140,7 +167,7 @@
                 color: $clean-medium-txt;
                 margin: 20px 18px 0;
                 display: grid;
-                grid-template-columns: .1fr 1fr;
+                grid-template-columns: .4fr 1fr;
                 span{
                     color: $color-txt;
                      margin-left: 40px;

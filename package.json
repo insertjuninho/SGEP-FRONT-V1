@@ -24,6 +24,8 @@
     "@auth0/angular-jwt": "^2.1.0",
     "@ngx-pwa/local-storage": "^8.2.4",
     "@toverux/ngx-sweetalert2": "^4.0.0",
+    "moment": "^2.29.1",
+    "ng-pick-datetime": "^7.0.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.4.0",

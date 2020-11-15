@@ -1,0 +1,48 @@
+<section class="form-card">
+  <form [formGroup]="validaFormGroup">
+    <div class="formulario">
+      <mat-form-field appearance="outline">
+        <mat-label>Motivo</mat-label>
+        <mat-select formControlName="motivo">
+          <mat-option value="encerrar-expediente">Encerrar o expediente</mat-option>
+          <mat-option value="sair-almoco">Sair para almoço</mat-option>
+          <mat-option value="sair-pausa">Sair para pausa</mat-option>
+        </mat-select>
+        <mat-error *ngIf="validaFormGroup.controls['motivo'].hasError('required')">
+          Este campo é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="formulario">
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Hora</mat-label>
+        <input matInput type="text" [owlDateTime]="hora" [owlDateTimeTrigger]="hora" formControlName="hora" />
+        <owl-date-time #hora [pickerType]="'timer'"></owl-date-time>
+        <mat-error *ngIf="validaFormGroup.controls['hora'].hasError('required')">
+          Este campo é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data</mat-label>
+        <input matInput formControlName="data" [owlDateTime]="date" [owlDateTimeTrigger]="date" />
+        <owl-date-time [pickerType]="'calendar'" #date></owl-date-time>
+        <mat-error *ngIf="validaFormGroup.controls['data'].hasError('required')">
+          Este campo é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+      <button class="form-card__now-btn" type="button" (click)="setNow()">Agora</button>
+    </div>
+
+     <span class="formulario full-width">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Observações</mat-label>
+        <textarea matInput formControlName="obs" style="height: 150px; max-height: 200px"></textarea>
+      </mat-form-field>
+
+    </span>
+
+    <button class="form-card__send-btn" (click)="sendData()">Salvar Saida</button>
+  </form>
+</section>

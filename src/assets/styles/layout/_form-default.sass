@@ -1,0 +1,77 @@
+.formDefault
+    max-width: 98%
+    @extend %b-branco
+    border: solid 1px $primary-color
+    margin: 15px auto 15px auto
+    @include border-radius(5px 5px 0 0)
+    .form-header
+        background: $primary-color
+        margin: 0
+        padding: 5px
+        @include border-radius(5px 5px 0 0)
+        font-weight: bold
+        @extend %c-branco
+    section
+        padding: 5px 15px 5px 15px    
+.formulario
+    display: grid   
+    width: 100%
+    grid-column-gap: 30px
+    @include respond-to('medium')
+        grid-template-columns: 1fr 1fr 80px
+        align-items: center
+        justify-content: center
+        margin: auto
+        width: 70%
+    &.full-width
+        grid-template-columns: 1fr
+    .mat-form-field
+        width: 100%
+         //REMOVE ARROWS IN TYPE NUMBER INPUT   
+        // Chrome, Safari, Edge, Opera 
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button 
+            -webkit-appearance: none
+            margin: 0
+        //Firefox
+        input[type=number] 
+            -moz-appearance: textfield
+.tool-loading
+    display: flex
+    justify-content: center
+    background-color: transpaernt
+    height: 100px
+    &:after
+        content: " "
+        display: block
+        width: 50px
+        height: 50px
+        margin: 13px
+        border-radius: 50%
+        border: 6px solid $primary-color
+        border-color: $primary-color transparent $primary-color transparent
+        animation: btn-loader 1.2s linear infinite
+@include keyframes(btn-loader)
+    0% 
+        transform: rotate(0deg)
+    100% 
+        transform: rotate(360deg)
+
+//Date selector 
+.date
+    .mat-form-field-infix
+        padding: 0 !important
+        input
+            padding: 1em 0 1em 0               
+
+
+.mobile
+  border-color: $color-black
+  &:hover
+    background: $color-black
+    color: $color-white            
+
+.mat-horizontal-content-container
+    padding: 0!important
+    @include respond-to('small')
+        padding:  0 24px 24px 24px !important
