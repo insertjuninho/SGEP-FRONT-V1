@@ -33,6 +33,7 @@ export class SaidaContainerComponent implements OnInit {
   }
 
   sendForm(value){
+    this.alertUtilitys.loading('Cadastrando...');
     this.universalService.lancarSaida(value, this.user.id).pipe(
       map(response =>{
         console.log(response)

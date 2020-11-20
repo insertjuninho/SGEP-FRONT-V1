@@ -1,3 +1,4 @@
+import { EmployersGuard } from './shared/guards/employers.guard';
 import { DisableGuard } from './shared/guards/disable.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,7 @@ const routes: Routes = [
   {
     path: 'funcionarios',
     loadChildren: () => import('./pages/funcionarios/funcionarios.module').then(m => m.FuncionariosModule),
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, EmployersGuard],
   },
   { 
     path: '', 

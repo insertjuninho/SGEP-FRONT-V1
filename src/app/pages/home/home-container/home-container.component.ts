@@ -12,6 +12,7 @@ import { HomePresenter } from './home-presenter';
 })
 export class HomeContainerComponent implements OnInit {
   public user: any;
+  public loading: boolean = true;
 
   //PAGINAÇÃO ENTRADAS
   public currentPage: number = 1;
@@ -26,7 +27,6 @@ export class HomeContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getDatas()
     this.getUserData()
   }
 
@@ -35,6 +35,7 @@ export class HomeContainerComponent implements OnInit {
       map(response => {
         if(response){
           this.user = response
+          this.getDatas(this.user)
         }
       })
     ).subscribe(noop, err => console.log(err))
@@ -47,15 +48,14 @@ export class HomeContainerComponent implements OnInit {
     this.currentPageOut = page
   }
 
- async getDatas(){
-   this.universalService.getData('2/lancamentos').pipe(
+ async getDatas(user){
+   this.universalService.getData('lancamentos', await user.id).pipe(
      map(response =>{
-       let user = response.filter(user => user.funcionario.matricula == this.user.matricula)
-       if(user){
-        this.presenter.setData(user)
-        }else{
-          this.presenter.setData(response)
+       if (response){
+        this.presenter.setData(response)
+         this.loading = false;
        }
+
      })
    ).subscribe(noop, err => console.log(err))
   }

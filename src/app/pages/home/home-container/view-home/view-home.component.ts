@@ -13,6 +13,7 @@ export class ViewHomeComponent implements OnInit {
   
   @Input() currentPage: number;
   @Input() ItensPerPage: number;
+  @Input() loading: boolean;
   
   @Input() currentPageOut: number;
   @Input() ItensPerPageOut: number;
@@ -29,12 +30,12 @@ export class ViewHomeComponent implements OnInit {
        result.forEach(element => {
          let dtHrEntrada = {
            data: element.data,
-           hora: moment().format(element.horaEntrada)
+           hora: element.horaEntrada ? moment().format(element.horaEntrada) : null
          }
          let dtHrSaida = {
            data: element.data,
-           hora: moment().format(element.horaSaida)
-         }
+           hora: element.horaSaida ? moment().format(element.horaSaida): null
+          }
          this.entradas.push(dtHrEntrada)
          this.saidas.push(dtHrSaida)
         });        

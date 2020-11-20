@@ -30,7 +30,7 @@ export class FuncionariosContainerComponent implements OnInit {
     this.currentPage = page
   }
   getEmployers() {
-    this.universalService.getData('').pipe(
+    this.universalService.getData('', '').pipe(
       map(response => {
         this.funcionariosPresenter.setData(response)
         this.loading = false;

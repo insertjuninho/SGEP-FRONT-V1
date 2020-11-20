@@ -1,93 +1,93 @@
 <section class="wrapper">
   <section class="user-info">
-  <h1 class="user-info-title">{{user?.nome}} {{user?.sobrenome}}</h1>
-  <!-- <h1  class="user-info-title">Olá Fulano</h1> -->
-  <p class="user-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nesciunt ipsa quibusdam
-    natus. Debitis ullam sunt laborum quod nisi voluptatem a doloribus in, libero eveniet porro quidem saepe nesciunt
-    labore!</p>
-</section>
-<section class=" user-more-info">
-  <div class="user-info user-more-info-card">
-    <h2 class="user-more-info-card-title">Seus Dados</h2>
-    <p class="user-more-info-card-text"><b>CPF:</b> {{user?.cpf}}</p>
-    <p class="user-more-info-card-text"><b>Email:</b> {{user?.email}}</p>
-    <p class="user-more-info-card-text"><b>Próxima Folga:</b> {{user?.diafolga}}</p>
-    <p class="user-more-info-card-text"><b>Privilégio:</b> {{user?.privilegio}}</p>
-  </div>
-
-  <div class="user-info user-more-info-card">
-    <h2 class="user-more-info-card-title">Relação Empresa</h2>
-    <p class="user-more-info-card-text"><b>Matrícula:</b> {{user?.matricula}}</p>
-    <p class="user-more-info-card-text"><b>Setor:</b> {{user?.setor?.nomeSetor}}</p>
-    <p class="user-more-info-card-text"><b>Centro de custo:</b> {{user?.setor?.centroCusto}}</p>
-  </div>
-
-  <div class="user-info user-more-info-card">
-    <h2 class="user-more-info-card-title">Suas Entradas</h2>
-
-    <div class="user-more-info__table">
-      <ul class="user-more-info__table-header">
-        <li class="user-more-info__header-li"></li>
-        <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
-        <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
-      </ul>
-      <ng-container *ngFor="let enters of entradas | paginate: {id: 'entradas', itemsPerPage: ItensPerPage, currentPage: currentPage}; let i = index">
-        <ul class="user-more-info__table-content">
-          <li class="user-more-info__table-content-li user-more-info__table-content-li--green"></li>
-
-          <li class="user-more-info__table-content-li">
-            <p>{{enters.data | date: 'dd/MM/yy'}}</p>
-          </li>
-          <li class="user-more-info__table-content-li">
-            <p>{{enters.hora}}</p>
-          </li>
-        </ul>
-      </ng-container>
+    <h1 class="user-info-title">{{user?.nome}} {{user?.sobrenome}}</h1>
+    <!-- <h1  class="user-info-title">Olá Fulano</h1> -->
+    <p class="user-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nesciunt ipsa quibusdam
+      natus. Debitis ullam sunt laborum quod nisi voluptatem a doloribus in, libero eveniet porro quidem saepe nesciunt
+      labore!</p>
+  </section>
+  <section class=" user-more-info">
+    <div class="user-info user-more-info-card">
+      <h2 class="user-more-info-card-title">Seus Dados</h2>
+      <p class="user-more-info-card-text"><b>CPF:</b> {{user?.cpf}}</p>
+      <p class="user-more-info-card-text"><b>Email:</b> {{user?.email}}</p>
+      <p class="user-more-info-card-text"><b>Próxima Folga:</b> {{user?.diafolga}}</p>
+      <p class="user-more-info-card-text"><b>Privilégio:</b> {{user?.privilegio}}</p>
     </div>
-    <pagination-controls
-      id="entradas"
-      autoHide="true"
-      responsive="true"
-      previousLabel=""
-      nextLabel=""
-      (pageChange)="page.emit($event)">
-    </pagination-controls>
-  </div>
 
+    <div class="user-info user-more-info-card">
+      <h2 class="user-more-info-card-title">Relação Empresa</h2>
+      <p class="user-more-info-card-text"><b>Matrícula:</b> {{user?.matricula}}</p>
+      <p class="user-more-info-card-text"><b>Setor:</b> {{user?.setor?.nomeSetor}}</p>
+      <p class="user-more-info-card-text"><b>Centro de custo:</b> {{user?.setor?.centroCusto}}</p>
+    </div>
 
-  <div class="user-info user-more-info-card">
-    <h2 class="user-more-info-card-title">Suas Saidas</h2>
-
-    <div class="user-more-info__table">
-      <ul class="user-more-info__table-header">
-        <li class="user-more-info__header-li"></li>
-        <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
-        <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
-      </ul>
-      <ng-container *ngFor="let outs of saidas | paginate: {id: 'saidas', itemsPerPage: ItensPerPageOut, currentPage: currentPageOut}; let i = index">
-        <ul class="user-more-info__table-content">
-          <li class="user-more-info__table-content-li user-more-info__table-content-li--red"></li>
-
-          <li class="user-more-info__table-content-li">
-            <p>{{outs.data | date: 'dd/MM/yy'}}</p>
-          </li>
-          <li class="user-more-info__table-content-li">
-            <p>{{outs.hora}}</p>
-          </li>
-        </ul>
+    <div class="user-info user-more-info-card">
+      <h2 class="user-more-info-card-title">Suas Entradas</h2>
+      <ng-container *ngIf="loading; else loaded">
+        <div class="table-loader"></div>
       </ng-container>
+      <ng-template #loaded>
+        <div class="user-more-info__table">
+          <ul class="user-more-info__table-header">
+            <li class="user-more-info__header-li"></li>
+            <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
+            <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
+          </ul>
+          <ng-container
+            *ngFor="let enters of entradas | paginate: {id: 'entradas', itemsPerPage: ItensPerPage, currentPage: currentPage}; let i = index">
+            <ul class="user-more-info__table-content">
+              <li class="user-more-info__table-content-li user-more-info__table-content-li--green"></li>
+
+              <li class="user-more-info__table-content-li">
+                <p>{{enters.data | date: 'dd/MM/yy'}}</p>
+              </li>
+              <li class="user-more-info__table-content-li">
+                <p>{{enters.hora}}</p>
+              </li>
+            </ul>
+          </ng-container>
+        </div>
+        <pagination-controls id="entradas" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+          (pageChange)="page.emit($event)">
+        </pagination-controls>
+      </ng-template>
 
     </div>
-    <pagination-controls
-      id="saidas"
-      autoHide="true"
-      responsive="true"
-      previousLabel=""
-      nextLabel=""
-      (pageChange)="pageOut.emit($event)">
-    </pagination-controls>
-  </div>
-</section>
-</section>
 
 
+    <div class="user-info user-more-info-card">
+      <h2 class="user-more-info-card-title">Suas Saidas</h2>
+
+      <ng-container *ngIf="loading; else loadedOut">
+        <div class="table-loader"></div>
+      </ng-container>
+      <ng-template #loadedOut>
+        <div class="user-more-info__table">
+          <ul class="user-more-info__table-header">
+            <li class="user-more-info__header-li"></li>
+            <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
+            <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
+          </ul>
+          <ng-container
+            *ngFor="let outs of saidas | paginate: {id: 'saidas', itemsPerPage: ItensPerPageOut, currentPage: currentPageOut}; let i = index">
+            <ul class="user-more-info__table-content">
+              <li class="user-more-info__table-content-li user-more-info__table-content-li--red"></li>
+
+              <li class="user-more-info__table-content-li">
+                <p>{{outs.data | date: 'dd/MM/yy'}}</p>
+              </li>
+              <li class="user-more-info__table-content-li">
+                <p>{{outs.hora}}</p>
+              </li>
+            </ul>
+          </ng-container>
+
+        </div>
+        <pagination-controls id="saidas" autoHide="true" responsive="true" previousLabel="" nextLabel=""
+          (pageChange)="pageOut.emit($event)">
+        </pagination-controls>
+      </ng-template>
+    </div>
+  </section>
+</section>

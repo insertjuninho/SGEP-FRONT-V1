@@ -37,10 +37,10 @@ export class ViewLancarSaidaComponent implements OnInit {
   sendData() {
     if (this.validaFormGroup.valid) {
 
-      let hora = moment(this.validaFormGroup.value['hora']).format('HH:mm')
-      let data = moment(this.validaFormGroup.value['data']).format('DD/MM/YYYY')
+      let hora = moment(this.validaFormGroup.value['hora']).format('HH:mm:ss')
+      let data = moment(this.validaFormGroup.value['data']).format()
       let payload = {
-        aprovacao: '',
+        aprovacao: null,
         data: data,
         funcionario: `${this.user.nome} ${this.user.sobrenome}`,
         horaBanco: moment().format(),

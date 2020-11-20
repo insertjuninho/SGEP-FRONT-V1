@@ -10,7 +10,7 @@
                     <span>{{ p.title }}</span>
                 </ng-container>
             </li>
-            <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage()" *ngIf="userData?.privilegio == 'GESTOR'">
+            <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage()" *ngIf="userData?.privilegio == 'ADMIN_GERAL'">
                 <i class="fas fa-users"></i>
                 <span>Funcionarios</span>
             </li>

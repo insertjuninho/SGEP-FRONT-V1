@@ -57,7 +57,7 @@ export class LoginContainerComponent implements OnInit {
           }
         },
         err => {
-          this.AlertUtilitys.showMsg('error', 'Erro', 'Usuário não encontrado!', 'Ok');
+          this.AlertUtilitys.showMsg('error', `Erro ${err.status}`, err.error.message, 'Ok');
           console.log(err)
           this.loadingService.finishLoading();
         },
