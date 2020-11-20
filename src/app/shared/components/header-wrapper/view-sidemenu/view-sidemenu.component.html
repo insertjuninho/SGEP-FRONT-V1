@@ -5,10 +5,18 @@
         </button>
         <ul>
             <li *ngFor="let p of pages" [ngClass]="{'actived': selectedItem == p.url }" (click)="openPage(p)">
-                <ng-container *ngIf="p.permision">
+                <ng-container>
                     <i [class]="p.icon"></i>
                     <span>{{ p.title }}</span>
                 </ng-container>
+            </li>
+            <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage()" *ngIf="userData?.privilegio == 'GESTOR'">
+                <i class="fas fa-users"></i>
+                <span>Funcionarios</span>
+            </li>
+            <li (click)="logout()">
+                <i class="fa fa-sign-out-alt"></i>
+                <span>Sair</span>
             </li>
         </ul>
     </div>

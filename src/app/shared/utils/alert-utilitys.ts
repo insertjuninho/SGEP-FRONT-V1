@@ -67,10 +67,33 @@ export class AlertUtilitys {
     })
   }
 
+  showError(errType, cod, error) {
+    let html = error;
+    // if (cod) {
+    //   html += '<p style="color:white;margin: 0;">#' + cod + ' ' + errType + '</p>';
+    // }
+
+    return Swal.fire({
+      showCancelButton: false,
+      buttonsStyling: false,
+      animation: false,
+      padding: "1em 1em 2em 1em",
+      customClass: "app-swal animated zoomIn faster",
+      confirmButtonClass: "mat-button app-swal-primary-button",
+      cancelButtonClass: "mat-button app-swal-secundary-button",
+
+      title: 'Erro',
+      html: html,
+      type: "error",
+      confirmButtonText: "OK"
+    });
+  }
+
   //LOADING
   loading(texto){
     Swal.fire({
       title: texto,  
+      allowOutsideClick: false 
     });
     Swal.showLoading();
   }

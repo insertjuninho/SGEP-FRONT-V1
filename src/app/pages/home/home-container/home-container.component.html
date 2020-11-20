@@ -1,1 +1,11 @@
-<view-home></view-home>
+<view-home 
+[user]="user"
+
+[currentPage] = "currentPage"
+[ItensPerPage] = "ItensPerPage"
+
+[currentPageOut]="currentPageOut"
+[ItensPerPageOut]="ItensPerPageOut"
+(page)="changePage($event)"
+(pageOut)="changePageOut($event)"
+></view-home>

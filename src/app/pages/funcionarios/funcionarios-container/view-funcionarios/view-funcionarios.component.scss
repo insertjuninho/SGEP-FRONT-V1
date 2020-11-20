@@ -74,7 +74,7 @@
       list-style: none;
 
       @include respond-to('medium') {
-        grid-template-columns: 1fr 1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr 0.4fr;
+        grid-template-columns: 1fr 1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.5fr 0.2fr;
       }
 
       &-li {
@@ -114,7 +114,8 @@
       border-bottom: 1px solid #D8D8D8;
 
       @include respond-to('medium') {
-        grid-template-columns: 1fr 1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.8fr 0.4fr;
+        grid-template-columns: 1fr 1fr 0.7fr 0.7fr 0.7fr 0.8fr 0.3fr 0.2fr;
+
       }
 
        //MOBILE
@@ -220,6 +221,20 @@
             @include respond-to('medium') {
               display: none
             }
+        }
+
+        &--actions{
+          button{
+            background: transparent;
+            border: none;
+            color: $color-red;
+            max-height: 30px;
+            margin: 0 3px 16px 0;
+            cursor: pointer;
+            &:nth-child(2){
+              color: $color-green
+            }
+          }
         }
 
       }

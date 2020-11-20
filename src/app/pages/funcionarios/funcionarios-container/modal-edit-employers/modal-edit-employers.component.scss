@@ -1,0 +1,43 @@
+@import './../../../../../assets/styles/utils/_mixins';
+@import './../../../../../assets/styles/utils/_variables';
+
+.edit-form{
+    padding: 10px 20px;
+    &__formulario{
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        &-row{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            @include respond-to('medium'){
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    &__close{
+        background: transparent;
+        color: black;
+        border: none;
+        font-size: 25px;
+        display: block;
+        cursor: pointer;
+        margin: 0 0 auto auto;
+    }
+
+    &__send{
+        background: $primary-color;
+        color: $color-white;
+        font-size: 17px;
+        font-weight: bold;
+        display: flex;
+        margin: 30px auto 0;
+        padding: 10px 35px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+    }
+}   

@@ -1,0 +1,45 @@
+<section class="edit-form">
+    <button class="edit-form__close" mat-dialog-close><i class="far fa-times-circle"></i></button>
+    <form enctype="multipart/form-data" [formGroup]="validaFormGroup">
+        <div class="edit-form__formulario">
+
+            <span class="edit-form__formulario-row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" type="text" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Sobrenome</mat-label>
+                    <input matInput formControlName="sobrenome" type="text" />
+                </mat-form-field>
+            </span>
+
+            <span class="edit-form__formulario-row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Privilegio</mat-label>
+                    <input matInput formControlName="privilegio" type="text" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Dia da folga</mat-label>
+                    <input matInput formControlName="diafolga" type="text" />
+                </mat-form-field>
+            </span>
+            <span class="edit-form__formulario-row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Setor</mat-label>
+                    <input matInput formControlName="nomeSetor" type="text" />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Centro de custo</mat-label>
+                    <input matInput formControlName="centroDeCusto" type="text" />
+                </mat-form-field>
+            </span>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="text" />
+            </mat-form-field>
+        </div>
+
+        <button class="edit-form__send" (click)="send()">Editar</button>
+    </form>
+</section>

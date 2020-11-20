@@ -1,6 +1,6 @@
 import { Observable, Subject, BehaviorSubject } from "rxjs";
 
-export class HomePresenter {
+export class FuncionariosPresenter {
 
     private _getData: BehaviorSubject<any[]> = new BehaviorSubject(null);
     readonly setData$: Observable<any[]> = this._getData.asObservable();

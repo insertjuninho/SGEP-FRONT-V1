@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as moment from 'moment'
 @Component({
@@ -8,8 +8,10 @@ import * as moment from 'moment'
 })
 export class ViewLancarEntradaComponent implements OnInit {
   public validaFormGroup: FormGroup;
+  @Input() user: any;
+  @Output() sendForm = new EventEmitter()
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -25,17 +27,30 @@ export class ViewLancarEntradaComponent implements OnInit {
     });
   }
 
-  setNow(){ 
-    let now = moment().format(); 
+  setNow() {
+    let now = moment().format();
     this.validaFormGroup.controls['hora'].setValue(now)
     this.validaFormGroup.controls['data'].setValue(now)
   }
 
-  sendData(){
-    console.log(this.validaFormGroup.value)
-    if (this.validaFormGroup.valid){
+  sendData() {
+    if (this.validaFormGroup.valid) {
 
+      let hora = moment(this.validaFormGroup.value['hora']).format('HH:mm')
+      let data = moment(this.validaFormGroup.value['data']).format('DD/MM/YYYY')
+      let payload = {
+        aprovacao:	'',
+        data: data,
+        funcionario:	`${this.user.nome} ${this.user.sobrenome}`,
+        horaBanco:	moment().format(),
+        horaEntrada:	hora,
+        horaExtra:	null,
+        horaSaida: null,
+        id: this.user.id,
+        observacao: this.validaFormGroup.value['obs'],
     }
+    this.sendForm.emit(payload)
   }
+}
 
 }

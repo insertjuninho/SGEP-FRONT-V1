@@ -1,3 +1,6 @@
+import { AlertUtilitys } from './../../shared/utils/alert-utilitys';
+import { GlobalPresenter } from 'src/app/global-presenter';
+import { UniversalService } from './../../services/universal.service';
 import { FdModule } from './../../shared/module/fd.module';
 import { SaidaPresenter } from './saida-container/saida-presenter';
 import { SaidaContainerComponent } from './saida-container/saida-container.component';
@@ -24,7 +27,9 @@ const routes: Routes = [
     FdModule
   ],
   providers: [
-    SaidaPresenter
+    SaidaPresenter,
+    UniversalService,
+    AlertUtilitys
   ]
 })
 export class LancarSaidaModule { }

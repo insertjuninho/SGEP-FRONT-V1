@@ -31,20 +31,27 @@
         <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
         <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
       </ul>
-      <ng-container *ngFor="let enters of [1,2,3,4]; let i = index">
+      <ng-container *ngFor="let enters of entradas | paginate: {id: 'entradas', itemsPerPage: ItensPerPage, currentPage: currentPage}; let i = index">
         <ul class="user-more-info__table-content">
           <li class="user-more-info__table-content-li user-more-info__table-content-li--green"></li>
 
           <li class="user-more-info__table-content-li">
-            <p>13/11/2020</p>
+            <p>{{enters.data | date: 'dd/MM/yy'}}</p>
           </li>
           <li class="user-more-info__table-content-li">
-            <p>13:30:25</p>
+            <p>{{enters.hora}}</p>
           </li>
         </ul>
       </ng-container>
-
     </div>
+    <pagination-controls
+      id="entradas"
+      autoHide="true"
+      responsive="true"
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="page.emit($event)">
+    </pagination-controls>
   </div>
 
 
@@ -57,20 +64,28 @@
         <li class="user-more-info__header-li"><i class="fas fa-calendar-alt"></i> Data</li>
         <li class="user-more-info__header-li"><i class="fas fa-clock"></i> Hora</li>
       </ul>
-      <ng-container *ngFor="let enters of [1,2,3,4]; let i = index">
+      <ng-container *ngFor="let outs of saidas | paginate: {id: 'saidas', itemsPerPage: ItensPerPageOut, currentPage: currentPageOut}; let i = index">
         <ul class="user-more-info__table-content">
           <li class="user-more-info__table-content-li user-more-info__table-content-li--red"></li>
 
           <li class="user-more-info__table-content-li">
-            <p>13/11/2020</p>
+            <p>{{outs.data | date: 'dd/MM/yy'}}</p>
           </li>
           <li class="user-more-info__table-content-li">
-            <p>13:30:25</p>
+            <p>{{outs.hora}}</p>
           </li>
         </ul>
       </ng-container>
 
     </div>
+    <pagination-controls
+      id="saidas"
+      autoHide="true"
+      responsive="true"
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="pageOut.emit($event)">
+    </pagination-controls>
   </div>
 </section>
 </section>

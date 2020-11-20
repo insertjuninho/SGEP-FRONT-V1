@@ -1,96 +1,115 @@
-<section class="employers-list">
-  <section class="employers-list-header">
-    <span class="employers-list-header-filter">
-      <input type="text" placeholder="Pesquisar...">
-      <i class="fas fa-search"></i>
-    </span>
+<div class="loadingIn" *ngIf="loading; else show">
+  <span>
+      <internal-loader></internal-loader>
+  </span>
+</div>
 
-    <!-- <button class="employers-list-header-add-button">Adicionar Funcionário</button> -->
-  </section>
-
-  <section class="employers-list__table">
-    <ul class="employers-list__table-header">
-      <li class="employers-list__table-header-li">Nome</li>
-      <li class="employers-list__table-header-li">Email</li>
-      <li class="employers-list__table-header-li">Matrícula</li>
-      <li class="employers-list__table-header-li">Privilegio</li>
-      <li class="employers-list__table-header-li">Setor</li>
-      <li class="employers-list__table-header-li">Centro Custo</li>
-      <li class="employers-list__table-header-li">Dia de Folga</li>
-      <li class="employers-list__table-header-li">Status</li>
-    </ul>
-
-    <ng-container *ngFor="let parc of[1,2,3,4]; let i = index">
-      <ul class="employers-list__table-content"
-        [ngClass]="{'employers-list__table-content-mobile-details': accordionIndex == i && toggle}">
-        <li class="employers-list__table-content-li">
-          <p>Nome do Funcionario</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>email@vkblnlfb.com.br</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>55115665163</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>Supervisor</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>Master setor</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>AA-99</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>08/11/2020</p>
-        </li>
-        <li class="employers-list__table-content-li">
-          <p>Almoço</p>
-        </li>
-
-        <!-- MOBILE -->
-        <div class="employers-list__table-content-li-mobile" [ngClass]="{'hide':  accordionIndex != i}">
-
-            <li class="employers-list__table-content-li-mobile">
-              <p class="employers-list__table-content-li-mobile-p">
-                Matrícula: <span class="employers-list__table-content-li-mobile-span">
-                  {{i}}
-                </span>
-              </p>
-            </li>
-            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--privi">
-              <p class="employers-list__table-content-li-mobile-p">
-                Privilegio: <span class="employers-list__table-content-li-mobile-span">
-                  Supervisor{{i}}
-                </span>
-              </p>
-            </li>
-            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--setor">
-              <p class="employers-list__table-content-li-mobile-p">
-                Setor: <span class="employers-list__table-content-li-mobile-span">
-                  Master setor{{i}}
-                </span>
-              </p>
-            </li>
-            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--ct-custo">
-              <p class="employers-list__table-content-li-mobile-p">
-                Centro Custo: <span class="employers-list__table-content-li-mobile-span">
-                  AA-99{{i}}
-                </span>
-              </p>
-            </li>
-            <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--d-folga">
-              <p class="employers-list__table-content-li-mobile-p">
-                Dia de Folga: <span class="employers-list__table-content-li-mobile-span">
-                 02/11/2020
-                </span>
-              </p>
-            </li>
-            
-        </div>
-        <button class="employers-list__table-content-li-mobile-open-btn" (click)="toggleInfo(i)"><i
-            class="fas fa-plus"></i></button>
+<ng-template #show>
+  <section class="employers-list">
+    <section class="employers-list-header">
+      <span class="employers-list-header-filter">
+        <input type="text" placeholder="Pesquisar..."  (input)="filterBy($event)">
+        <i class="fas fa-search"></i>
+      </span>
+  
+      <!-- <button class="employers-list-header-add-button">Adicionar Funcionário</button> -->
+    </section>
+  
+    <section class="employers-list__table">
+      <ul class="employers-list__table-header">
+        <li class="employers-list__table-header-li">Nome</li>
+        <li class="employers-list__table-header-li">Email</li>
+        <li class="employers-list__table-header-li">Matrícula</li>
+        <li class="employers-list__table-header-li">Privilegio</li>
+        <li class="employers-list__table-header-li">Setor</li>
+        <li class="employers-list__table-header-li">Centro Custo</li>
+        <li class="employers-list__table-header-li">Dia de Folga</li>
+        <!-- <li class="employers-list__table-header-li">Status</li> -->
       </ul>
-    </ng-container>
+  
+      <ng-container *ngFor="let func of funcionarios | filterBy: filter | paginate: {id: 'func', itemsPerPage: ItensPerPage, currentPage: currentPage}; let i = index">
+        <ul class="employers-list__table-content"
+          [ngClass]="{'employers-list__table-content-mobile-details': accordionIndex == i && toggle}">
+          <li class="employers-list__table-content-li">
+            <p>{{func?.nome}} {{func?.sobrenome}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.email}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.matricula}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.privilegio}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.setor?.nomeSetor}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.setor?.centroCusto}}</p>
+          </li>
+          <li class="employers-list__table-content-li">
+            <p>{{func?.diafolga}}</p>
+          </li>
+          <li class="employers-list__table-content-li employers-list__table-content-li--actions">
+            <button (click)="delete.emit(i)"><i class="fas fa-trash"></i></button>
+            <button (click)="edit.emit(func)"><i class="fas fa-edit"></i></button>
+          </li>
+  
+          <!-- MOBILE -->
+          <div class="employers-list__table-content-li-mobile" [ngClass]="{'hide':  accordionIndex != i}">
+  
+              <li class="employers-list__table-content-li-mobile">
+                <p class="employers-list__table-content-li-mobile-p">
+                  Matrícula: <span class="employers-list__table-content-li-mobile-span">
+                    {{i}}
+                  </span>
+                </p>
+              </li>
+              <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--privi">
+                <p class="employers-list__table-content-li-mobile-p">
+                  Privilegio: <span class="employers-list__table-content-li-mobile-span">
+                    Supervisor{{i}}
+                  </span>
+                </p>
+              </li>
+              <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--setor">
+                <p class="employers-list__table-content-li-mobile-p">
+                  Setor: <span class="employers-list__table-content-li-mobile-span">
+                    Master setor{{i}}
+                  </span>
+                </p>
+              </li>
+              <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--ct-custo">
+                <p class="employers-list__table-content-li-mobile-p">
+                  Centro Custo: <span class="employers-list__table-content-li-mobile-span">
+                    AA-99{{i}}
+                  </span>
+                </p>
+              </li>
+              <li class="employers-list__table-content-li-mobile employers-list__table-content-li-mobile--d-folga">
+                <p class="employers-list__table-content-li-mobile-p">
+                  Dia de Folga: <span class="employers-list__table-content-li-mobile-span">
+                   02/11/2020
+                  </span>
+                </p>
+              </li>
+              
+          </div>
+          <button class="employers-list__table-content-li-mobile-open-btn" (click)="toggleInfo(i)"><i
+              class="fas fa-plus"></i></button>
+        </ul>
+      </ng-container>
+      <pagination-controls
+      id="func"
+      autoHide="true"
+      responsive="true"
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="page.emit($event)">
+    </pagination-controls>
+    </section>
   </section>
-</section>
+
+</ng-template>
+

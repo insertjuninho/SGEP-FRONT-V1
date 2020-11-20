@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FuncionariosPresenter } from './../../funcionarios-presenter';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'view-funcionarios',
@@ -8,10 +9,32 @@ import { Component, OnInit } from '@angular/core';
 export class ViewFuncionariosComponent implements OnInit {
   public accordionIndex: number = null;
   public toggle: boolean = false;
-  constructor() { }
+  public funcionarios: Array<any> = []
+  
+  @Input() loading: boolean;
+  @Input() currentPage: number;
+  @Input() ItensPerPage: number;
+  @Output() page = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() edit = new EventEmitter();
 
-  ngOnInit() { }
+  public filter: any  = {nome: ''}
+  constructor(
+    private funcionariosPresenter: FuncionariosPresenter
+  ) { }
 
+  ngOnInit() { 
+    this.funcionariosPresenter.setData$.subscribe(response =>{
+      if(response){
+        this.funcionarios = response
+      }
+    })
+  }
+
+  filterBy(event){
+
+    this.filter = {nome: event.target.value}
+  }
   // TOGGLE ACCORDEON FOR MOBILE
   toggleInfo(i) {
     this.accordionIndex = i

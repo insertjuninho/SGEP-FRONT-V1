@@ -1,5 +1,5 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment'
 @Component({
   selector: 'view-lancar-saida',
@@ -9,6 +9,8 @@ import * as moment from 'moment'
 export class ViewLancarSaidaComponent implements OnInit {
 
   public validaFormGroup: FormGroup;
+  @Input() user: any;
+  @Output() sendForm = new EventEmitter()
   constructor(
     private fb: FormBuilder
   ) { }
@@ -33,9 +35,22 @@ export class ViewLancarSaidaComponent implements OnInit {
   }
 
   sendData() {
-    console.log(this.validaFormGroup.value)
     if (this.validaFormGroup.valid) {
 
+      let hora = moment(this.validaFormGroup.value['hora']).format('HH:mm')
+      let data = moment(this.validaFormGroup.value['data']).format('DD/MM/YYYY')
+      let payload = {
+        aprovacao: '',
+        data: data,
+        funcionario: `${this.user.nome} ${this.user.sobrenome}`,
+        horaBanco: moment().format(),
+        horaEntrada: hora,
+        horaExtra: null,
+        horaSaida: null,
+        id: this.user.id,
+        observacao: this.validaFormGroup.value['obs'],
+      }
+      this.sendForm.emit(payload)
     }
   }
 }

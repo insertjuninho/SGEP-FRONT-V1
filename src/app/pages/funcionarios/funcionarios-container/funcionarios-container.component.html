@@ -1,1 +1,9 @@
-<view-funcionarios></view-funcionarios>
+<view-funcionarios
+[currentPage] = "currentPage"
+[ItensPerPage] = "ItensPerPage"
+[loading]="loading"
+(page)="changePage($event)"
+
+(delete)="delete($event)"
+(edit)="edit($event)"
+></view-funcionarios>

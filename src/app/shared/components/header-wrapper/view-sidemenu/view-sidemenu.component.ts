@@ -41,18 +41,18 @@ export class ViewSidemenuComponent implements OnInit {
       url: "lancar-saida",
       permision: true,
     },
-    {
-      title: "Funcionários",
-      icon: "fas fa-users",
-      url: "funcionarios",
-      permision: true,
-    },
-    {
-      title: "Sair",
-      icon: "fa fa-sign-out-alt",
-      url: "logout",
-      permision: true,
-    }
+    // {
+    //   title: "Funcionários",
+    //   icon: "fas fa-users",
+    //   url: "funcionarios",
+    //   permision: true,
+    // },
+    // {
+    //   title: "Sair",
+    //   icon: "fa fa-sign-out-alt",
+    //   url: "logout",
+    //   permision: true,
+    // }
   ]
   constructor(
     private location: Location,
@@ -121,6 +121,10 @@ export class ViewSidemenuComponent implements OnInit {
       this.sendPageToHeader();
     }
 
+  }
+  openEmployersPage(){
+    this.router.navigate(['funcionarios']);
+    this.selectedItem = 'funcionarios';
   }
   sendPageToHeader() {
     for (let i = 0; i < this.pages.length; i++) {

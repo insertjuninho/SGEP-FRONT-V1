@@ -1,3 +1,5 @@
+import { AlertUtilitys } from './../../shared/utils/alert-utilitys';
+import { UniversalService } from './../../services/universal.service';
 import { FdModule } from './../../shared/module/fd.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -26,7 +28,9 @@ const routes: Routes = [
 
   ],
   providers: [
-    EntradaPresenter
+    EntradaPresenter,
+    UniversalService,
+    AlertUtilitys
   ]
 })
 export class LancarEntradaModule { }

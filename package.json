@@ -26,6 +26,8 @@
     "@toverux/ngx-sweetalert2": "^4.0.0",
     "moment": "^2.29.1",
     "ng-pick-datetime": "^7.0.0",
+    "ngx-filter-pipe": "^2.1.2",
+    "ngx-pagination": "^5.0.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.4.0",
