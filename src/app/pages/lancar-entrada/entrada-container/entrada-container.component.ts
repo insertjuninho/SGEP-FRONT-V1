@@ -32,7 +32,7 @@ export class EntradaContainerComponent implements OnInit {
 
   sendForm(value){
     this.alertUtilitys.loading('Cadastrando...');
-    this.universalService.lancarEntrada(value, this.user.id).pipe(
+    this.universalService.lancarEntrada(this.user.id).pipe(
       map(response =>{
         console.log(response)
         this.alertUtilitys.showMsg('success', 'Sucesso', 'Entrada registrada', 'Ok');

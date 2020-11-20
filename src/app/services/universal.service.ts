@@ -15,17 +15,17 @@ export class UniversalService {
     return this.httpClient.get<any>(this.config.baseUrl + `funcionario/${id}/${param}`);
   }
   //POST
-  public lancarEntrada(data,id): Observable<Response> {
+  public lancarEntrada(id): Observable<Response> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.post<Response>(this.config.baseUrl + `funcionario/${id}/jornada`, data, {headers});
+    return this.httpClient.post<Response>(this.config.baseUrl + `funcionario/${id}/jornada`, {headers});
   }
-  public lancarSaida(data,id): Observable<Response> {
+  public lancarSaida(id): Observable<Response> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.httpClient.put<Response>(this.config.baseUrl + `funcionario/${id}/jornada`, data, {headers});
+    return this.httpClient.put<Response>(this.config.baseUrl + `funcionario/${id}/jornada`, {headers});
   }
   //PUT
   public editData(newData, id): Observable<Response> {

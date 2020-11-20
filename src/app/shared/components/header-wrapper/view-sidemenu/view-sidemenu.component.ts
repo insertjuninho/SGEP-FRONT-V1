@@ -7,6 +7,8 @@ import { Config } from '../../../../app.config';
 import Swal from "sweetalert2";
 import { GlobalPresenter } from 'src/app/global-presenter';
 import { noop } from 'rxjs';
+import { UniversalService } from 'src/app/services/universal.service';
+import { AlertUtilitys } from 'src/app/shared/utils/alert-utilitys';
 
 @Component({
   selector: 'view-sidemenu',
@@ -59,7 +61,9 @@ export class ViewSidemenuComponent implements OnInit {
     public router: Router,
     protected authService: AuthAPIService,
     public globalPresenter: GlobalPresenter,
-    public config: Config) { }
+    public config: Config,
+    public universalService: UniversalService,
+    public alertUtilitys: AlertUtilitys) { }
 
   ngOnInit() {
     this.param = this.location.path()
@@ -103,7 +107,6 @@ export class ViewSidemenuComponent implements OnInit {
   }
   hideSide() {
     this.showSide = !this.showSide;
-    console.log('eventr')
     this.toggleSideMenu.emit(this.showSide);
   }
   openPage(page) {
@@ -111,6 +114,12 @@ export class ViewSidemenuComponent implements OnInit {
       switch (page.url) {
         case "logout":
           this.logout();
+          break;
+        case "lancar-entrada":
+          this.entrada();
+          break;
+        case "lancar-saida":
+          this.saida();
           break;
   
         default:
@@ -133,6 +142,57 @@ export class ViewSidemenuComponent implements OnInit {
       }
     }
   }
+  entrada() {
+    Swal.fire({
+      title: "Lançar uma entrada?",
+      type: "warning",
+      //
+      showCancelButton: true,
+      customClass: "app-swal",
+      confirmButtonClass: "primary-button",
+      cancelButtonClass: "secundary-button",
+      //
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não"
+    }).then(result => {
+      if (result.value) {
+        this.alertUtilitys.loading('Entrando...');
+        this.universalService.lancarEntrada(this.userData.id).pipe(
+          map(response => {
+            this.alertUtilitys.showMsg('success', 'Sucesso', 'Entrada registrada', 'Ok');
+          })
+        ).subscribe(noop, err => {
+          this.alertUtilitys.showMsg('error', `Erro ${err.status}`, err.error.message, 'Ok');
+        })
+      }
+    });
+  }
+  saida() {
+    Swal.fire({
+      title: "Lançar uma saida?",
+      type: "warning",
+      //
+      showCancelButton: true,
+      customClass: "app-swal",
+      confirmButtonClass: "primary-button",
+      cancelButtonClass: "secundary-button",
+      //
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não"
+    }).then(result => {
+      if (result.value) {
+        this.alertUtilitys.loading('Saindo...');
+        this.universalService.lancarSaida(this.userData.id).pipe(
+          map(response => {
+            this.alertUtilitys.showMsg('success', 'Sucesso', 'Saida registrada', 'Ok');
+          })
+        ).subscribe(noop, err => {
+          this.alertUtilitys.showMsg('error', `Erro ${err.status}`, err.error.message, 'Ok');
+        })
+      }
+    });
+  }
+
   logout() {
     Swal.fire({
       title: "Tem certeza que deseja fazer logout?",
