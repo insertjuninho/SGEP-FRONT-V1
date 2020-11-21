@@ -52,7 +52,7 @@
             <p>{{func?.diafolga}}</p>
           </li>
           <li class="employers-list__table-content-li employers-list__table-content-li--actions">
-            <button (click)="delete.emit(i)"><i class="fas fa-trash"></i></button>
+            <button (click)="delete.emit(func.id)"><i class="fas fa-trash"></i></button>
             <button (click)="edit.emit(func)"><i class="fas fa-edit"></i></button>
           </li>
   

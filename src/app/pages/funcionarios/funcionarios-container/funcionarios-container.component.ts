@@ -73,14 +73,15 @@ export class FuncionariosContainerComponent implements OnInit {
         if (result) {
           this.universalService.deleteData(id).pipe(
             map(response => {
-              if (response) {
+              if (response){
                 this.alertUtilitys.showMsg('success', 'Sucesso', 'Funcionario deletado com sucesso', 'Ok');
+                this.loading = true
                 this.getEmployers()
               }
-
             })
           ).subscribe(noop, err => {
-            this.alertUtilitys.showMsg('error', 'Erro', 'Ocorreu um erro ao deletar este fucnionario', 'Ok');
+            console.log(err)
+            this.alertUtilitys.showMsg('error', `Erro ${err.status}`, err.error.message, 'Ok');
           })
         }
       }
