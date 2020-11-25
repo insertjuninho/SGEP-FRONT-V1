@@ -1,3 +1,4 @@
+import { NgxMaskModule } from 'ngx-mask';
 import { AlertUtilitys } from './../../shared/utils/alert-utilitys';
 import { FuncionariosPresenter } from './funcionarios-presenter';
 import { UniversalService } from './../../services/universal.service';
@@ -10,6 +11,7 @@ import { FdModule } from 'src/app/shared/module/fd.module';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { ModalEditEmployersComponent } from './funcionarios-container/modal-edit-employers/modal-edit-employers.component';
 import { MatDialogModule } from '@angular/material';
+import { ViewFormAddEmployerComponent } from './funcionarios-container/view-form-add-employer/view-form-add-employer.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,14 +21,15 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     FuncionariosContainerComponent, 
-    ViewFuncionariosComponent, ModalEditEmployersComponent
+    ViewFuncionariosComponent, ModalEditEmployersComponent, ViewFormAddEmployerComponent
   ],
   imports: [
     CommonModule,
     FdModule,
     RouterModule.forChild(routes),
     FilterPipeModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxMaskModule.forRoot(),
 
   ],
   providers:[

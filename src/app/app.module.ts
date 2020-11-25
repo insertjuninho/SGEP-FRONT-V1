@@ -21,7 +21,7 @@ import { ViewToolbarComponent } from './shared/components/header-wrapper/view-to
   declarations: [
     AppComponent,
     ViewSidemenuComponent,
-    ViewToolbarComponent
+    ViewToolbarComponent,
   ],
   imports: [
     BrowserModule,

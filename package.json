@@ -28,6 +28,7 @@
     "ng-pick-datetime": "^7.0.0",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-pagination": "^5.0.0",
+    "ngx-mask": "^8.2.0",
     "node-sass": "^4.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.4.0",

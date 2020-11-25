@@ -16,7 +16,7 @@ export class EmployersGuard implements CanActivate {
     return new Promise((resolve) => { this.globalPresenter.setData$.pipe(
       map(data =>{
         if(data){
-          let isAdmin =['ADMIN_GERAL'].indexOf(data.privilegio) !== -1
+          let isAdmin = ['ADMIN_GERAL', 'GESTOR'].indexOf(data.privilegio) !== -1
           if (isAdmin){
             resolve(isAdmin)
           }else{

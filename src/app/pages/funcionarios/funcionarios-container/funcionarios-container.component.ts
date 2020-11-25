@@ -3,7 +3,7 @@ import { AlertUtilitys } from './../../../shared/utils/alert-utilitys';
 import { FuncionariosPresenter } from './../funcionarios-presenter';
 import { map } from 'rxjs/operators';
 import { UniversalService } from './../../../services/universal.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { noop } from 'rxjs';
 import Swal from "sweetalert2";
 import { MatDialog } from '@angular/material';
@@ -15,6 +15,7 @@ export class FuncionariosContainerComponent implements OnInit {
   public currentPage: number = 1;
   public ItensPerPage: number = 6;
   public loading: boolean = true;
+  public addForm: boolean = false;
   constructor(
     private universalService: UniversalService,
     private funcionariosPresenter: FuncionariosPresenter,

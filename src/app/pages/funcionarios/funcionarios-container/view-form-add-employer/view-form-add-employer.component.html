@@ -1,0 +1,59 @@
+<section class="employers-form">
+  <section class="employers-form-header">
+    <b>Adicionar Funcionário</b>
+    <button class="employers-form-header-add-button" (click)='openForm.emit(false)'><i class="fas fa-arrow-left"></i> Voltar</button>
+  </section>
+
+  <section class="employers-form-content">
+    <form class="employers-form-content-grid" [formGroup]="validaFormGroup">
+      <span>
+        <mat-form-field appearance="outline">
+          <mat-label>Nome do funcionário</mat-label>
+          <input matInput type="text" formControlName="nome" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Sobrenome do funcionário</mat-label>
+          <input matInput type="text" formControlName="nome" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>CPF</mat-label>
+          <input matInput type="text" formControlName="nome" mask="000.000.000-00"/>
+        </mat-form-field>
+      </span>
+
+      <span>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput type="text" formControlName="senha" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Privilégio</mat-label>
+          <input matInput type="text" formControlName="privilegio" />
+        </mat-form-field>
+      </span>
+
+      <span>
+        <mat-form-field appearance="outline">
+          <mat-label>CNPJ</mat-label>
+          <input matInput type="text" formControlName="cnpj" mask="00.000.000/0000-00"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Razão Social</mat-label>
+          <input matInput type="text" formControlName="razaoSocial" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Centro de custo</mat-label>
+          <input matInput type="text" formControlName="centroCusto" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nome do Setor</mat-label>
+          <input matInput type="text" formControlName="nomeSetor" />
+        </mat-form-field>
+      </span>
+    </form>
+  </section>
+</section>

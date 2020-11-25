@@ -17,6 +17,7 @@ export class ViewFuncionariosComponent implements OnInit {
   @Output() page = new EventEmitter();
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
+  @Output() openForm = new EventEmitter();
 
   public filter: any  = {nome: ''}
   constructor(

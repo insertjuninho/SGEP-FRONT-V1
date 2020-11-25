@@ -20,6 +20,7 @@ export class ViewSidemenuComponent implements OnInit {
   @Output() toggleSideMenu = new EventEmitter()
   @Output() selectedItemMenuChanged = new EventEmitter(true)
   public userData: any;
+  public isAdmin: boolean;
 
   public param: string;
   public selectedItem: string;
@@ -73,7 +74,9 @@ export class ViewSidemenuComponent implements OnInit {
     this.globalPresenter.setData$.pipe(
       map(response =>{
         if(response){
-          this.userData = response
+          this.userData = response;
+          this.isAdmin = ['ADMIN_GERAL', 'GESTOR'].indexOf(this.userData.privilegio) !== -1
+          console.log(this.isAdmin)
         }
       })
     ).subscribe(noop, err=> console.log(err))

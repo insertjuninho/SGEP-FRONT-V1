@@ -6,4 +6,13 @@
 
 (delete)="delete($event)"
 (edit)="edit($event)"
+(openForm)="addForm=$event"
+*ngIf="!addForm"
 ></view-funcionarios>
+
+<view-form-add-employer
+(openForm)="addForm=$event"
+*ngIf="addForm">
+
+</view-form-add-employer>
+

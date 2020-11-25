@@ -18,7 +18,6 @@ import { OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     NgxPaginationModule,
-
     //MATERIAL
     MatInputModule,
     MatSelectModule,
