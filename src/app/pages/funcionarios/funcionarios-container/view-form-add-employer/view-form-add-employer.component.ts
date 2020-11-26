@@ -1,6 +1,10 @@
+import { map } from 'rxjs/operators';
+import { AlertUtilitys } from './../../../../shared/utils/alert-utilitys';
+import { UniversalService } from 'src/app/services/universal.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { noop } from 'rxjs';
+import Swal from "sweetalert2";
 @Component({
   selector: 'view-form-add-employer',
   templateUrl: './view-form-add-employer.component.html',
@@ -8,9 +12,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ViewFormAddEmployerComponent implements OnInit {
   @Output() openForm = new EventEmitter();
+  @Output() refresh = new EventEmitter();
   public validaFormGroup: FormGroup;
   constructor(
     private fb: FormBuilder,
+    public universalService: UniversalService,
+    public alertUtilitys: AlertUtilitys
   ) { }
 
   ngOnInit() {
@@ -29,7 +36,35 @@ export class ViewFormAddEmployerComponent implements OnInit {
       senha: ['', Validators.required],
       centroCusto: ['', Validators.required],
       nomeSetor: ['', Validators.required],
+      diafolga: ['', Validators.required],
     });
+  }
+
+  sendForm(){
+    if(this.validaFormGroup.valid){
+      this.universalService.addData(this.validaFormGroup.value).pipe(
+        map(repsonse => {
+          this.alertUtilitys.loading('Cadastrando...');
+          if (repsonse) {
+            Swal.fire({
+              title: "Funcionario Cadastrado",
+              type: "success",
+              confirmButtonText: 'Ok',
+              showCancelButton: false,
+              customClass: {
+                container: 'app-swal',
+                confirmButton: "primary-button",
+              }
+            }).then(() => {
+              this.openForm.emit(false);
+              this.refresh.emit(true);
+            });
+          }
+        })
+      ).subscribe(noop, erro => {
+        this.alertUtilitys.showMsg('error', 'ERRO', 'Ocorreu um erro ao cadastrar!', 'Ok');
+      })
+    }
   }
 
 }

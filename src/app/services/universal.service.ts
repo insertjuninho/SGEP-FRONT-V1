@@ -27,6 +27,10 @@ export class UniversalService {
     });
     return this.httpClient.put<Response>(this.config.baseUrl + `funcionario/${id}/jornada`, {headers});
   }
+  //POST
+  public addData(data): Observable<Response> {
+    return this.httpClient.post<Response>(this.config.baseUrl + `funcionario`, data);
+  }
   //PUT
   public editData(newData, id): Observable<Response> {
     return this.httpClient.put<Response>(this.config.baseUrl + `funcionario/${id}`, newData);

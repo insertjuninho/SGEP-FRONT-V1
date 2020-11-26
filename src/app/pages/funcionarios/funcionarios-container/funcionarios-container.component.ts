@@ -38,7 +38,9 @@ export class FuncionariosContainerComponent implements OnInit {
       })
     ).subscribe(noop, err => console.log(err))
   }
-
+  refresh(event){
+    this.getEmployers()
+  }
   edit(obj) {
     const dialogRef = this.dialog.open(ModalEditEmployersComponent, {
       width: '80vw',

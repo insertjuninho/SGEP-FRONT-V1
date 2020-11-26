@@ -6,22 +6,19 @@
 
   <section class="employers-form-content">
     <form class="employers-form-content-grid" [formGroup]="validaFormGroup">
-      <span>
         <mat-form-field appearance="outline">
           <mat-label>Nome do funcionário</mat-label>
           <input matInput type="text" formControlName="nome" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Sobrenome do funcionário</mat-label>
-          <input matInput type="text" formControlName="nome" />
+          <input matInput type="text" formControlName="sobrenome" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>CPF</mat-label>
-          <input matInput type="text" formControlName="nome" mask="000.000.000-00"/>
+          <input matInput type="text" formControlName="cpf" mask="000.000.000-00"/>
         </mat-form-field>
-      </span>
 
-      <span>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput type="text" formControlName="email" />
@@ -32,11 +29,17 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Privilégio</mat-label>
-          <input matInput type="text" formControlName="privilegio" />
+           <mat-select formControlName="privilegio">
+            <mat-option value="1">Administrador</mat-option>
+            <mat-option value="2">Gestor</mat-option>
+            <mat-option value="3">Funcionário</mat-option>
+        </mat-select>
         </mat-form-field>
-      </span>
+        <mat-form-field appearance="outline">
+          <mat-label>Dia de folga</mat-label>
+          <input matInput type="number" formControlName="diafolga" />
+        </mat-form-field>
 
-      <span>
         <mat-form-field appearance="outline">
           <mat-label>CNPJ</mat-label>
           <input matInput type="text" formControlName="cnpj" mask="00.000.000/0000-00"/>
@@ -53,7 +56,10 @@
           <mat-label>Nome do Setor</mat-label>
           <input matInput type="text" formControlName="nomeSetor" />
         </mat-form-field>
-      </span>
+
+      <span></span>
+      <span></span>
+      <button class="employers-form-content-grid-send" (click)="sendForm()">Enviar</button>
     </form>
   </section>
 </section>
