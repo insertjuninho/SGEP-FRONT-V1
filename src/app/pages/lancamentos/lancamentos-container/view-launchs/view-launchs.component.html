@@ -1,0 +1,30 @@
+<section class="launchs">
+    
+    <div class="launchs__list">
+        <div class="launchs__list-table">
+          <ul class="launchs__list-table-header">
+            <li class="launchs__list-header-li"></li>
+            <li class="launchs__list-header-li">Nome</li>
+            <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora</li>
+            <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora</li>
+          </ul>
+          <ng-container
+            *ngFor="let outs of [1,2,3,4,5]">
+            <ul class="launchs__list-table-content">
+              <li class="launchs__list-table-content-li-type "></li>
+
+              <li class="launchs__list-table-content-li">
+                <p>Jhon Doe</p>
+              </li>
+              <li class="launchs__list-table-content-li">
+                <p>20/03/2020</p>
+              </li>
+              <li class="launchs__list-table-content-li">
+                <p style="margin-left: 15px;">05:15</p>
+              </li>
+            </ul>
+          </ng-container>
+
+        </div>
+    </div>
+</section>

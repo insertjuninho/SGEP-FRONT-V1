@@ -27,6 +27,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'lancamentos',
+    loadChildren: () => import('./pages/lancamentos/lancamentos.module').then(m => m.LancamentosModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'funcionarios',
     loadChildren: () => import('./pages/funcionarios/funcionarios.module').then(m => m.FuncionariosModule),
     canActivate: [AuthGuard, EmployersGuard],

@@ -99,6 +99,9 @@ export class ViewSidemenuComponent implements OnInit {
         case "/lancar-saida":
           this.selectedItem = "lancar-saida";
           break;
+        case "/lancamentos":
+          this.selectedItem = "lancamentos";
+          break;
         case "/funcionarios":
           this.selectedItem = "funcionarios";
           break;
@@ -134,9 +137,9 @@ export class ViewSidemenuComponent implements OnInit {
     }
 
   }
-  openEmployersPage(){
-    this.router.navigate(['funcionarios']);
-    this.selectedItem = 'funcionarios';
+  openEmployersPage(page){
+    this.router.navigate([page]);
+    this.selectedItem = page;
   }
   sendPageToHeader() {
     for (let i = 0; i < this.pages.length; i++) {

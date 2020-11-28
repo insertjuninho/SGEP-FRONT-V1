@@ -11,6 +11,9 @@ export class UniversalService {
   constructor(public httpClient: HttpClient, public config: Config) { }
 
   //GET
+  public getAllData(param): Observable<any> {
+    return this.httpClient.get<any>(this.config.baseUrl + `funcionario/${param}`);
+  }
   public getData(param, id): Observable<any> {
     return this.httpClient.get<any>(this.config.baseUrl + `funcionario/${id}/${param}`);
   }

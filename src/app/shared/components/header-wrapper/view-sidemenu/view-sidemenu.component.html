@@ -10,14 +10,14 @@
                     <span>{{ p.title }}</span>
                 </ng-container>
             </li>
-            <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage()" *ngIf="isAdmin">
+            <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage('funcionarios')" *ngIf="isAdmin">
                 <i class="fas fa-users"></i>
                 <span>Funcionarios</span>
             </li>
-            <!-- <li [ngClass]="{'actived': selectedItem == 'funcionarios' }" (click)="openEmployersPage()" *ngIf="isAdmin">
+            <li [ngClass]="{'actived': selectedItem == 'lancamentos' }" (click)="openEmployersPage('lancamentos')" *ngIf="isAdmin">
                 <i class="fas fa-outdent"></i>
                 <span>Entradas e Saidas</span>
-            </li> -->
+            </li>
             <li (click)="logout()">
                 <i class="fa fa-sign-out-alt"></i>
                 <span>Sair</span>

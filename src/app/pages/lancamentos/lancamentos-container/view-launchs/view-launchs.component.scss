@@ -1,0 +1,83 @@
+@import './../../../../../assets/styles/utils/_mixins';
+@import './../../../../../assets/styles/utils/variables';
+
+.launchs {
+  margin: 35px auto;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.13);
+  padding: 36px 24px;
+  min-height: 200px;
+
+  &__list-table {
+    width: 100%;
+    border: 1px solid #EEEEEE;
+    font-family: $font1;
+    max-height: 100%;
+    overflow-y: auto;
+
+    &-header {
+      display: grid;
+      grid-template-columns: 0.42fr 1fr 1fr 1fr;
+      color: $clean-medium-txt;
+      padding: 5px;
+      background-color: #F3F3F3;
+      border-top: 1px solid #D8D8D8;
+      border-bottom: 1px solid #D8D8D8;
+      padding: 13px 0;
+      margin: 0;
+      align-items: center;
+      list-style: none;
+
+      &-li {
+        font-size: 13px;
+        text-align: center;
+
+        i {
+          font-size: 13px;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    &-content {
+      display: grid;
+      grid-template-columns: 0.40fr 1fr 1fr 1fr;
+      list-style: none;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      @include transition(.3s);
+      background: $color-white;
+      border-bottom: 1px solid #D8D8D8;
+
+      &-li {
+        font-size: 13px;
+        text-align: center;
+        font-family: $font1;
+        color: $color-txt;
+        display: flex;
+        justify-content: flex-start;
+
+        &-type{
+          margin: auto;
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          &:nth-child(odd){
+            background: $color-green;
+            box-shadow: 0px 0px 8px 4px rgba(83, 196, 87, 0.5);
+          }
+          &:nth-child(even) {
+            background: $color-red;
+            box-shadow: 0px 0px 8px 4px rgba(177, 17, 22, 0.5);
+          }
+
+        }
+
+      }
+    }
+  }
+
+}
