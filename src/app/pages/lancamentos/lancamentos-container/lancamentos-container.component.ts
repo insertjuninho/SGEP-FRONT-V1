@@ -20,6 +20,7 @@ export class LancamentosContainerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getUserData()
   }
 
   async getUserData() {
@@ -33,7 +34,7 @@ export class LancamentosContainerComponent implements OnInit {
     ).subscribe(noop, err => console.log(err))
   }
  async getLaunchs(user){
-   this.universalService.getAllData('lancamentos').pipe(
+   this.universalService.getAllData('lancamentos', await user.id).pipe(
      map(response => {
        if (response) {
          this.presenter.setData(response)

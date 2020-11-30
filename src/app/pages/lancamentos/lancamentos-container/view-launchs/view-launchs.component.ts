@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { LancamentosPresenter } from './../lancamentos-presenter';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'view-launchs',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-launchs.component.scss']
 })
 export class ViewLaunchsComponent implements OnInit {
-
-  constructor() { }
+  private listaLancamentos: any = this.presenter.setData$
+  @Input() loading: boolean;
+  constructor(
+    private presenter: LancamentosPresenter
+  ) { }
 
   ngOnInit() {
   }

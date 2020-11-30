@@ -6,9 +6,11 @@
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.13);
-  padding: 36px 24px;
+  padding: 36px 0;
   min-height: 200px;
-
+  @include respond-to('medium'){
+    padding: 36px 24px;
+  }
   &__list-table {
     width: 100%;
     border: 1px solid #EEEEEE;
@@ -18,7 +20,7 @@
 
     &-header {
       display: grid;
-      grid-template-columns: 0.42fr 1fr 1fr 1fr;
+      grid-template-columns: 0.42fr 1fr 1fr 1fr 1fr;
       color: $clean-medium-txt;
       padding: 5px;
       background-color: #F3F3F3;
@@ -42,7 +44,7 @@
 
     &-content {
       display: grid;
-      grid-template-columns: 0.40fr 1fr 1fr 1fr;
+      grid-template-columns: 0.40fr 1fr 1fr 1fr 1fr;
       list-style: none;
       text-align: left;
       padding: 0;
@@ -65,14 +67,21 @@
           width: 15px;
           height: 15px;
           border-radius: 100%;
-          &:nth-child(odd){
-            background: $color-green;
-            box-shadow: 0px 0px 8px 4px rgba(83, 196, 87, 0.5);
-          }
-          &:nth-child(even) {
-            background: $color-red;
-            box-shadow: 0px 0px 8px 4px rgba(177, 17, 22, 0.5);
-          }
+           &--green,
+           &--red {
+             margin: auto;
+             width: 15px;
+             height: 15px;
+             background: $color-green;
+             border-radius: 100%;
+             box-shadow: 0px 0px 8px 4px rgba(83, 196, 87, 0.5);
+
+           }
+
+           &--red {
+             background: $color-red;
+             box-shadow: 0px 0px 8px 4px rgba(177, 17, 22, 0.5);
+           }
 
         }
 

@@ -1,30 +1,39 @@
-<section class="launchs">
-    
-    <div class="launchs__list">
-        <div class="launchs__list-table">
-          <ul class="launchs__list-table-header">
-            <li class="launchs__list-header-li"></li>
-            <li class="launchs__list-header-li">Nome</li>
-            <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora</li>
-            <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora</li>
-          </ul>
-          <ng-container
-            *ngFor="let outs of [1,2,3,4,5]">
-            <ul class="launchs__list-table-content">
-              <li class="launchs__list-table-content-li-type "></li>
+<section class="launchs"  [ngStyle]="{'display': loading ? 'flex' : 'block'}">
+  <ng-container *ngIf="loading; else loadedOut">
+    <div class="table-loader"></div>
+  </ng-container>
+  <ng-template #loadedOut>
+  <div class="launchs__list">
+    <div class="launchs__list-table">
+      <ul class="launchs__list-table-header">
+        <li class="launchs__list-header-li"></li>
+        <li class="launchs__list-header-li">Nome</li>
+        <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora Entrada</li>
+        <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora Saida</li>
+        <li class="launchs__list-header-li"><i class="fas fa-calendar"></i> Data</li>
+      </ul>
+      <ng-container *ngFor="let outs of listaLancamentos | async">
+        <ul class="launchs__list-table-content">
+          <li class="launchs__list-table-content-li-type" [ngClass]="{
+                  'launchs__list-table-content-li-type--green': outs.horaEntrada,
+                'launchs__list-table-content-li-type--red': outs.horaSaida}"></li>
 
-              <li class="launchs__list-table-content-li">
-                <p>Jhon Doe</p>
-              </li>
-              <li class="launchs__list-table-content-li">
-                <p>20/03/2020</p>
-              </li>
-              <li class="launchs__list-table-content-li">
-                <p style="margin-left: 15px;">05:15</p>
-              </li>
-            </ul>
-          </ng-container>
+          <li class="launchs__list-table-content-li">
+            <p>{{outs?.nome ? outs?.nome : 'Jhon Doe'}}</p>
+          </li>
+          <li class="launchs__list-table-content-li">
+            <p style="margin-left: 15px;">{{outs?.horaEntrada}}</p>
+          </li>
+          <li class="launchs__list-table-content-li">
+            <p style="margin-left: 15px;">{{outs?.horaSaida ? outs?.horaSaida : '---'}}</p>
+          </li>
+          <li class="launchs__list-table-content-li">
+            <p>{{outs?.data | date: 'dd/MM/yy'}}</p>
+          </li>
+        </ul>
+      </ng-container>
 
-        </div>
     </div>
+  </div>
+  </ng-template>
 </section>
