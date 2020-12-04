@@ -62,7 +62,7 @@ mat-form-field
         border: 6px solid $primary-color
         border-color: $primary-color transparent $primary-color transparent
         animation: btn-loader 1.2s linear infinite
-@include keyframes(btn-loader)
+@keyframes btn-loader
     0% 
         transform: rotate(0deg)
     100% 
@@ -75,8 +75,7 @@ mat-form-field
         input
             padding: 1em 0 1em 0               
 
-
-.mobile
+    .mobile
   border-color: $color-black
   &:hover
     background: $color-black
