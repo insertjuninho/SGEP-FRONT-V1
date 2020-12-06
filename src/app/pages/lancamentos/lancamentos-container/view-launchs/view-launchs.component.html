@@ -12,7 +12,7 @@
         <li class="launchs__list-header-li"><i class="fas fa-clock"></i> Hora Saida</li>
         <li class="launchs__list-header-li"><i class="fas fa-calendar"></i> Data</li>
       </ul>
-      <ng-container *ngFor="let outs of listaLancamentos | async">
+      <!-- <ng-container *ngFor="let outs of listaLancamentos | async">
         <ul class="launchs__list-table-content">
           <li class="launchs__list-table-content-li-type" [ngClass]="{
                   'launchs__list-table-content-li-type--green': outs.horaEntrada,
@@ -31,7 +31,7 @@
             <p>{{outs?.data | date: 'dd/MM/yy'}}</p>
           </li>
         </ul>
-      </ng-container>
+      </ng-container> -->
 
     </div>
   </div>

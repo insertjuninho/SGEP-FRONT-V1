@@ -14,6 +14,7 @@ export interface UserSignin {
   email: string;
   senha: string;
 }
+
 export interface UserData {
   sub: number;
   name: String;
@@ -22,5 +23,13 @@ export interface UserData {
   usuario: String;
 }
 
-
-
+export interface returnJornada {
+  id:          number;
+  data:        string;
+  horaEntrada: string;
+  horaSaida:   string;
+  horaExtra:   null;
+  horaBanco:   null;
+  observacao:  null;
+  aprovacao:   null;
+}

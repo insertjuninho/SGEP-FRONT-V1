@@ -15,6 +15,4 @@ export class LancamentosPresenter {
     setData(_data) {
         this._getData.next(_data);
     }
-
-
 }

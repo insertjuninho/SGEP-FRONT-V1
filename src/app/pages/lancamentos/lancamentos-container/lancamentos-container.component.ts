@@ -33,6 +33,7 @@ export class LancamentosContainerComponent implements OnInit {
       })
     ).subscribe(noop, err => console.log(err))
   }
+
  async getLaunchs(user){
    this.universalService.getAllData('lancamentos', await user.id).pipe(
      map(response => {

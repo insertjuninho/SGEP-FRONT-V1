@@ -41,6 +41,7 @@ export class FuncionariosContainerComponent implements OnInit {
   refresh(event){
     this.getEmployers()
   }
+
   edit(obj) {
     const dialogRef = this.dialog.open(ModalEditEmployersComponent, {
       width: '80vw',
@@ -56,6 +57,7 @@ export class FuncionariosContainerComponent implements OnInit {
       }
     });
   }
+
   delete(id) {
     Swal.fire({
       title: "Tem certeza que deseja excluir?",
@@ -91,4 +93,5 @@ export class FuncionariosContainerComponent implements OnInit {
     });
   }
 
+  
 }

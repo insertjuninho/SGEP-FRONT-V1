@@ -14,6 +14,7 @@ export class UniversalService {
   public getAllData(param, id): Observable<any> {
     return this.httpClient.get<any>(this.config.baseUrl + `funcionario/${id}/${param}`);
   }
+
   public getData(param, id): Observable<any> {
     return this.httpClient.get<any>(this.config.baseUrl + `funcionario/${id}/${param}`);
   }
@@ -34,6 +35,7 @@ export class UniversalService {
   public addData(data): Observable<Response> {
     return this.httpClient.post<Response>(this.config.baseUrl + `funcionario`, data);
   }
+
   //PUT
   public editData(newData, id): Observable<Response> {
     return this.httpClient.put<Response>(this.config.baseUrl + `funcionario/${id}`, newData);
@@ -44,5 +46,8 @@ export class UniversalService {
     return this.httpClient.delete<Response>(this.config.baseUrl + `funcionario/${id}`)
   }
 
-
+  //Return Lançamento
+    public returnLancamento(id): Observable<Response> {
+     return this.httpClient.delete<Response>(this.config.baseUrl + `funcionario/${id}/lancamentos`)
+  }
 }
